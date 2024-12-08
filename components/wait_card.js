@@ -90,8 +90,6 @@ export default function WaitCardWidget({
   const handleEditSubmit = (editedCard) => {
     if (onEditWaitCard) {
       onEditWaitCard(editedCard);
-      console.log("clicked")
-      setIsEditDialogOpen(false);
     }
   }
 

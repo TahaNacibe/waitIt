@@ -1,5 +1,5 @@
 import { auth, db } from "@/lib/firebase";
-import { addDoc, arrayRemove, arrayUnion, collection, deleteDoc, doc, FieldValue, getDoc, getDocs, increment, limit, orderBy, query, setDoc, updateDoc, where } from "firebase/firestore";
+import { addDoc, arrayRemove, arrayUnion, collection, deleteDoc, doc, FieldValue, getDoc, getDocs, increment, limit, orderBy, query, setDoc, Timestamp, updateDoc, where } from "firebase/firestore";
 
 
 export default class FirebaseServices {
@@ -363,7 +363,8 @@ export default class FirebaseServices {
       //* get all the popular items reference
       const q = query(
         collection(db, "items"),
-        orderBy("waitToDate", "desc"),
+        where("waitToDate",">=",Timestamp.now()),
+        orderBy("waitToDate"),
         limit(10)
       )
       const querySnapshot = await getDocs(q);

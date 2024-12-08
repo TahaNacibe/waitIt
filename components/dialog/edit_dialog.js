@@ -23,6 +23,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import LoadingSpinner from "../animated/loading_spiner";
 
 export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, titleValue, dateValue, cardId, ownerId }) {
   //* manage state vars
@@ -32,6 +33,7 @@ export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, 
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [datePreview, setDatePreview] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
 
   //* get instance
   const firebase_services = new FirebaseServices()
@@ -79,6 +81,7 @@ export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, 
 
   //* apply the edit on the item
   const handleEditWaitCard = async () => {
+    setIsLoading(true)
     const uploadedImageUrl = await uploadImageToServer() ?? imagePreview;
 
     firebase_services.editExistingWaitCardInTheFirebase({title,description, image:uploadedImageUrl,waitToDate:date}, cardId, ownerId).then((updatedCard) => {
@@ -196,14 +199,14 @@ export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, 
           <Button
             type="submit"
             onClick={handleEditWaitCard}
-            disabled={!title || !imagePreview || !date || !description}
+            disabled={!title || !imagePreview || !date }
             className={`w-full py-2 rounded-md ${
               title && imagePreview && date && description
                 ? "bg-gray-700 hover:bg-gray-600 text-white"
                 : "bg-gray-800 text-gray-500 cursor-not-allowed"
             }`}
           >
-            {title && imagePreview && date && description ? "Save Changes" : "Fill All Fields"}
+            {title && imagePreview && date ? isLoading? <LoadingSpinner /> : "Save Changes" : "Fill All Fields"}
           </Button>
         </DialogFooter>
       </DialogContent>
