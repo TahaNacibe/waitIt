@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Clock, User, Calendar,ArrowLeft,LogIn,LogOut, Share} from 'lucide-react';
 import FirebaseServices from "@/services/firebase/firebase_services";
-import { getUserNameFirstLettersForErrorWidget } from "@/lib/userName_for_pfpWidget";
+import getUserNameFirstLettersForErrorWidget from "@/lib/userName_for_pfpWidget";
 import { useRouter } from "next/router";
 import getDisplayDate from "@/lib/date_geter";
 import { onAuthStateChanged } from "firebase/auth";
