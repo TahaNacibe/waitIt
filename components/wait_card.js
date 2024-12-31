@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import FirebaseServices from '@/services/firebase/firebase_services';
 import Link from 'next/link';
 import getUserNameFirstLettersForErrorWidget from '@/lib/userName_for_pfpWidget';
+import Image from 'next/image';
 
 export default function WaitCardWidget({ 
   waitCard, 
@@ -132,8 +133,10 @@ export default function WaitCardWidget({
           {/* Profile Widget */}
           <div className="flex justify-between items-start">
             {waitCard.owner.photoURL && !isErrorSignedOnPfpLoad
-              ? < img
-              src={waitCard.owner.photoURL}
+              ? < Image
+                width={500}
+                height={500}
+                src={waitCard.owner.photoURL}
               onError={(e) => {
                 setIsErrorSignedOnPfpLoaded(true)
               }}

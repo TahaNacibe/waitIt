@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 
 export default function SearchPage({ searchResult, q }) {
@@ -150,7 +151,10 @@ const NoItemsInSearchResult = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center py-12 rounded-lg shadow-sm flex justify-center"
     >
-        <img src='ilu/no_items.svg' className="w-1/4 h-1/4" alt=''/>
+            <Image
+                width={500}
+                height={500}
+                src='ilu/no_items.svg' className="w-1/4 h-1/4" alt='' />
     </motion.div>
     )
 }

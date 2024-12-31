@@ -8,6 +8,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { ShareWaitCardButton } from "@/components/dialog/share_card";
 import NumberFlow from '@number-flow/react'
+import Image from "next/image";
 
 
 const ProfileAvatar = ({ user, size = "w-12 h-12" }) => {
@@ -21,7 +22,9 @@ const ProfileAvatar = ({ user, size = "w-12 h-12" }) => {
   return (
     <div className={`${size} rounded-full overflow-hidden border-2 border-neutral-700`}>
       {photoURL && !isErrorOnPfpLoad ? (
-        <img
+        <Image
+          width={500}
+          height={500}
           src={photoURL}
           alt={`${displayName}'s profile`}
           onError={handleImageError}
@@ -229,7 +232,9 @@ export default function CardDetailsPage({ cardDetailsResponse }) {
       <div className="relative z-10 max-w-4xl w-full grid md:grid-cols-2 gap-8 bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl scale-110">
         {/* Left Column - Image */}
         <div className="relative">
-          <img 
+          <Image 
+            width={500}
+            height={500}
             src={parsedData.image} 
             alt="Card Background" 
             className="absolute inset-0 w-full h-full object-cover opacity-50"
@@ -280,7 +285,7 @@ export default function CardDetailsPage({ cardDetailsResponse }) {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
             <User className="text-neutral-500" />
-              <h2 className="font-medium text-sm">Who's waiting?</h2>
+              <h2 className="font-medium text-sm">Who&apos;s waiting?</h2>
             </div>
             <WaitingUsersList users={parsedData.waitingUsersDetails} />
           </div>

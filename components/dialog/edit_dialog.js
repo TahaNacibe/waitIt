@@ -24,6 +24,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import LoadingSpinner from "../animated/loading_spiner";
+import Image from "next/image";
 
 export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, titleValue, dateValue, cardId, ownerId }) {
   //* manage state vars
@@ -123,7 +124,9 @@ export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, 
               className="w-32 h-32 border-2 border-gray-700 rounded-lg cursor-pointer flex justify-center items-center"
             >
               {imagePreview ? (
-                <img
+                <Image
+                  width={300}
+                  height={300}
                   src={imagePreview}
                   alt="Preview"
                   className="w-full h-full object-cover rounded-lg"
@@ -140,7 +143,7 @@ export default function EditWaitCardDialog({ onEditCard, imageValue, descValue, 
               className="hidden"
             />
             <p className="w-2/3 text-gray-600">
-              The image selected here will be displayed as a background for the wait card. It's quite helpful to show what the thing we're waiting for.
+              The image selected here will be displayed as a background for the wait card. It&apos;s quite helpful to show what the thing we&apos;re waiting for.
             </p>
           </div>
 

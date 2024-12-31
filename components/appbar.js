@@ -7,6 +7,7 @@ import { Input } from "./ui/input";
 import { auth } from "@/lib/firebase";
 import { handleSignInWithGoogle } from "@/services/auth/sign_in";
 import LoadingSpinner from "./animated/loading_spiner";
+import Image from "next/image";
 
 export default function AppBar() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -108,7 +109,9 @@ function AuthButton() {
                            border border-gray-700 
                            transition-colors duration-300"
             >
-                <img
+                <Image
+                    width={150}
+                    height={150}
                     src="/google_icon.svg"
                     alt="Google Sign In"
                     className="w-5 h-5"
@@ -128,7 +131,9 @@ function AuthButton() {
                        transition-colors duration-300"
         >
             {user.photoURL ? (
-                <img
+                <Image 
+                    width={300}
+                    height={300}
                     src={user.photoURL}
                     alt={user.displayName || "Profile"}
                     className="w-6 h-6 rounded-full object-cover"

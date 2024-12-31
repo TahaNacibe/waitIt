@@ -22,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import FirebaseServices from "@/services/firebase/firebase_services";
+import Image from "next/image";
 
 export default function NewWaitCardDialog({ onCreateWaitCard }) {
   //* manage state vars
@@ -102,7 +103,9 @@ export default function NewWaitCardDialog({ onCreateWaitCard }) {
               className="w-32 h-32 border-2 border-gray-700 rounded-lg cursor-pointer flex justify-center items-center"
             >
               {imagePreview ? (
-                <img
+                <Image
+                  width={300}
+                  height={300}
                   src={imagePreview}
                   alt="Preview"
                   className="w-full h-full object-cover rounded-lg"
@@ -118,7 +121,7 @@ export default function NewWaitCardDialog({ onCreateWaitCard }) {
               onChange={handleImageChange}
               className="hidden"
                       />
-                      <p className="w-2/3 text-gray-600"> the image selected here will be displayed as a background for the wait card, it's quite helpful to show what the thing we're waiting for</p>
+                      <p className="w-2/3 text-gray-600"> the image selected here will be displayed as a background for the wait card, it&apos;s quite helpful to show what the thing we&apos;re waiting for</p>
           </div>
 
           {/* Input Fields */}

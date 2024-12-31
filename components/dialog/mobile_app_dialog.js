@@ -9,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { TabletSmartphone } from "lucide-react"
+import Image from "next/image"
 
 
 export function GetMobileAppButton() {
@@ -28,7 +29,11 @@ export function GetMobileAppButton() {
           </DialogDescription>
         </DialogHeader>
               <div>
-                  <img src="Untitled.svg" />
+          <Image
+            width={500}
+            alt="untitled"
+            height={500}
+            src="Untitled.svg" />
         </div>
         <DialogFooter>
           <Button type="submit">Close window</Button>

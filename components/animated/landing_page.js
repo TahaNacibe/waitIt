@@ -83,7 +83,7 @@ const ButtonsBar = () => {
       <a
         href="#itemsSection"
         className="rounded-full border-gray-600 border px-6 py-3 flex items-center gap-3 cursor-pointer hover:bg-white hover:text-black hover:border-transparent transition-all duration-300">
-        <h1 className="text-sm md:text-lg">Check what's popular</h1>
+        <h1 className="text-sm md:text-lg">Check what&apos;s popular</h1>
       </a>
     </div>
   );

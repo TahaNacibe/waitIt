@@ -32,7 +32,7 @@ import {
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             {/* description */}
             <AlertDialogDescription>
-              if you delete this card all people will loose access to it, and there won't be any way to get it back?
+              if you delete this card all people will loose access to it, and there won&apos;t be any way to get it back?
             </AlertDialogDescription>
           </AlertDialogHeader>
           {/* action buttons */}

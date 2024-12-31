@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import UserDetailsManager from "@/services/firebase/user_details_manager";
 import LoadingSpinner from "@/components/animated/loading_spiner";
 import { useToast } from "@/hooks/use-toast"
+import Image from "next/image";
 
 
 export default function ProfilePage() {
@@ -240,7 +241,10 @@ export default function ProfilePage() {
   if (!user) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center justify-items-center bg-black text-white">
-          <img src='ilu/log_in.svg' className="w-1/3 " alt=''/>
+        <Image
+          width={500}
+          height={500}
+          src='ilu/log_in.svg' className="w-1/3 " alt='' />
         <div className="text-center pt-8 flex flex-col items-center">
           <h1 className="text-gray-600 text-xl pb-4">
             Log in to Start creating and managing wait cards
@@ -248,7 +252,10 @@ export default function ProfilePage() {
           <div
             onClick={() => handleSignInWithGoogle()}
             className="px-2 py-1 flex w-fit items-center gap-2 border border-gray-600 rounded-lg cursor-pointer hover:bg-white/5 hover:scale-105 transition-all duration-300">
-            <img src='google_icon.svg' className="w-10" alt=''/>
+            <Image
+              width={150}
+              height={150}
+              src='google_icon.svg' className="w-10" alt='' />
             <h1 className="text-lg "> Log In with google </h1>
           </div>
         </div>
@@ -271,7 +278,9 @@ export default function ProfilePage() {
                 setPfpFile(e.target.files[0])
               }
             }}/>}
-            <img 
+            <Image
+              width={150}
+            height={150}  
               src={userPfpImage || "/default-avatar.png"} 
               alt="Profile"
               className="w-20 h-20 rounded-full object-cover border-2 border-white"
