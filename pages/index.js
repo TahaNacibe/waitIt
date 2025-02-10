@@ -1,4 +1,5 @@
 import CountdownTitlePage from "@/components/animated/landing_page";
+import LandingPage from "@/components/animated/new_landing_page";
 import WaitCardsSection from "@/components/sections/wait_card_section";
 import FirebaseServices from "@/services/firebase/firebase_services";
 import { useState } from "react";
@@ -11,7 +12,7 @@ export default function Home({  jsonStringEndingSoonWaitCardsList,jsonStringPopu
   // ui tree
   return (
     <section className="w-full flex flex-col items-center justify-center pt-8 md:pt-16">
-      <CountdownTitlePage />
+      <LandingPage popularWaitCardsList={popularWaitCardsList} />
       <div
         id="itemsSection"
         className="p-4 w-full gap-12 flex flex-col">
